@@ -14,15 +14,12 @@ RUN     gem update --system \
 # Clone the jekyll theme
 RUN git clone https://github.com/s110b/feng.git .
 
- 
-	
-	
-# Install Jekyll and other dependencies
-RUN gem update --system \
-    && gem install bundler \
-    && bundle install \
-    && gem cleanup \
+# Install bundle
+RUN     bundle install \
     && rm -rf /usr/local/bundle/cache/*.gem
+	
+	
+
 
 # Start a new stage for the final image
 FROM ruby:3.1-alpine
