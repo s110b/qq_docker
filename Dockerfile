@@ -6,23 +6,23 @@ RUN apk add --no-cache build-base git
 
 WORKDIR /app
 
-# Install Jekyll
-RUN     gem update --system \
-    && gem install jekyll bundler \
+# Install Jekyll and other required gems
+RUN gem update --system \
+    && gem install jekyll bundler faraday-retry \
     && gem cleanup
 
 # Clone the jekyll theme
 RUN git clone https://github.com/s110b/feng.git .
 
 # Install bundle
-RUN     bundle install \
+RUN bundle install \
     && rm -rf /usr/local/bundle/cache/*.gem
-	
-	
-
 
 # Start a new stage for the final image
 FROM ruby:3.1-alpine
+
+# Install git in the final image
+RUN apk add --no-cache git
 
 WORKDIR /app
 
