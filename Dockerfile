@@ -14,8 +14,14 @@ RUN     gem update --system \
 # Clone the jekyll theme
 RUN git clone https://github.com/s110b/feng.git .
 
-# Install bundle
-RUN     bundle install \
+ 
+	
+	
+# Install Jekyll and other dependencies
+RUN gem update --system \
+    && gem install bundler \
+    && bundle install \
+    && gem cleanup \
     && rm -rf /usr/local/bundle/cache/*.gem
 
 # Start a new stage for the final image
@@ -29,4 +35,4 @@ COPY --from=builder /app/ /app/
 
 # Make port 4000 available to the world outside this container
 EXPOSE 4000
-ENTRYPOINT [ "jekyll", "s", "--host=0.0.0.0" ]
+ENTRYPOINT [ "bundle", "exec", "jekyll", "s", "--host=0.0.0.0" ]
