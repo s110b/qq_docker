@@ -1,0 +1,7 @@
+# no version needed since 2020
+
+services:
+  s110b:
+    image: xiquwugou/s110b:latest
+    ports:
+      - '4000:4000'

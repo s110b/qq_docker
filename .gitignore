@@ -1,0 +1,9 @@
+.jekyll-cache
+# this repo only builds a docker image for jekyll, and doesn't store a jekyll site.
+_site
+.idea/deployment.xml
+.idea/jekyll-serve.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/vcs.xml
