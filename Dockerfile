@@ -5,6 +5,8 @@ FROM jekyll/jekyll
 
  
 COPY feng-master   /blog
+RUN chmod -R 777 /blog
+
 
 WORKDIR /blog
 
