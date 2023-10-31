@@ -1,0 +1,106 @@
+#
+# This file contains configuration flags to customize your site
+#
+
+# Name of your site (displayed in the header)
+title: Photography Modern theme
+
+# Short bio or description (displayed in the header)
+description: Description
+slogan: Photography Modern is a theme for GitHub Pages
+
+blog_description: "Blog description."
+
+author:
+  name:
+
+covers: /assets/img/covers/
+
+# Includes an icon in the footer for each username you enter
+social-links:
+  dribbble:
+  email:
+  facebook:
+  flickr:
+  github:
+  instagram:
+  linkedin:
+  pinterest:
+  rss: # just type anything here for a working RSS icon
+  keybase:
+  twitter:
+  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: # anything in your profile username that comes after plus.google.com/
+
+index_title: Home
+
+# Enter your Disqus shortname (not your username) to enable commenting on posts
+# You can find your shortname on the Settings page of your Disqus account
+disqus:
+
+pgp-key:
+  show: false
+  url:
+  fingerprint:
+
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics:
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+excerpt_separator: <!--more-->
+
+# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
+# Used for Sitemap.xml and your RSS feed
+url:
+
+# If you're hosting your site at a Project repository on GitHub pages
+# (http://yourusername.github.io/repository-name)
+# and NOT your User repository (http://yourusername.github.io)
+# then add in the baseurl here, like this: "/repository-name"
+baseurl: "/feng"
+lang: en-US
+
+permalink: pretty
+
+collections:
+  photo_categories:
+    output: true
+    permalink: /:path/:name/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: photo_categories
+    values:
+      layout: category
+      image_width: 1920
+      image_height: 500
+      cover: true
+
+sass:
+  style: compressed
+
+# Use the following plug-ins
+plugins:
+  - jemoji
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-avatar
+  - jekyll-github-metadata
+  - jekyll-gist
+  - jekyll-avatar
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME

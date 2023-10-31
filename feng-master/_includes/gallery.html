@@ -1,0 +1,10 @@
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<script src="{{ 'assets/vendor/gallery/js/lightgallery.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/vendor/gallery/js/lg-zoom.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/vendor/gallery/js/lg-fullscreen.min.js' | relative_url }}"></script>
+<script src="{{ 'assets/vendor/gallery/js/lg-thumbnail.min.js' | relative_url }}"></script>
+<script>
+    lightGallery(document.getElementById('photos'), {
+      download:false
+    });
+</script>

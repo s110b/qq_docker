@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="cards">
+    {% for card in site.photo_categories %}<article class="card">
+    <div class="card_container">
+      <a href="{{ card.url }}">{% assign slitted_path = card.path | split: "/" %}
+        <svg class="card_image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {{ card.image_width }} {{ card.image_height }}" preserveAspectRatio="xMidYMid slice">
+          <image width="{{ card.image_width }}" height="{{ card.image_height }}" xlink:href="{% if card.cover %}{{ site.covers | relative_url }}{{ slitted_path.last | remove: card.ext }}.jpg{% else %}{{ site.covers | relative_url }}default_cover.jpg{% endif %}"></image>
+        </svg>
+      </a>
+      <div class="card_content">
+        <div class="card_caption">
+          <h1 class="card_title">{{ card.title }}</h1>
+          {% if card.description %}<h2 class="card_subtitle">{{ card.description }}</h2>{% endif %}
+        </div>
+      </div>
+    </div>
+  </article>{% endfor %}
+</div>

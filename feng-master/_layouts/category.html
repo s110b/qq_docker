@@ -1,0 +1,11 @@
+---
+layout: page
+---
+
+{% assign collection = site.collections | where: "label", page.collection | first %}
+<section id="photos">
+  {% for image in collection.files %}{% if image.path contains page.url %}
+  <a href="{{ page.url }}{{ image.name }}"><img src="{{ page.url }}{{ image.name }}"></a>
+  {% endif %}{% endfor %}
+</section>
+{% include gallery.html %}

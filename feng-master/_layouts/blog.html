@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+{% if site.blog_description %}
+{% include blog_description.html %}
+{% endif %}
+<div class="posts">
+{% for post in paginator.posts %}
+  <article class="post">{% assign slitted_path = post.path | split: "/" %}
+    <img class="cover" src="{{ site.covers | relative_url }}{{ slitted_path.last | remove: post.ext }}.jpg" style="width:100%">
+    <div class="w3-container">
+      <h1><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h1>
+      <time class="w3-opacity" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ post.date | date: "%B, %Y" }}
+      </time>
+
+      {{ post.excerpt }}
+
+      <div class="w3-row">
+        <a href="{{ post.url | relative_url }}" class="read-more w3-button w3-right w3-border">Read More</a>
+      </div>
+    </div>
+  </article>
+{% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="w3-container pagination">
+{% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="w3-btn w3-border w3-round w3-left">&laquo; Previous</a>
+{% endif %}{% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="w3-btn w3-border w3-round w3-right">Next &raquo;</a>
+{% endif %}
+</div>
+{% endif %}

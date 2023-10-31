@@ -1,0 +1,6 @@
+<div class="w3-center" style="margin-top: 30px;">
+  <nav id="navbar" class="w3-bar w3-border" role="navigation">
+    {% for path in site.data.nav_pages %}{% assign nav_page=site.pages | where:"path",path | first %}
+    <a href="{{ nav_page.url | relative_url }}" class="w3-bar-item w3-button {% if page.permalink == nav_page.permalink %}w3-light-grey{% endif %}">{{ nav_page.title | default: site.index_title }}</a>{% endfor %}
+  </nav>
+</div>
